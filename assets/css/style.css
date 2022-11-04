@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,500&family=Pacifico&display=swap');
 
 :root {
   --yellow: #fddd13;
@@ -17,9 +17,9 @@ body {
 
 .navbar-brand,
 nav {
-font-family: font-family: 'Open Sans', sans-serif;
+  font-family: 'Pacifico', cursive;;
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 400;
   background-color: var(--dark-blue);
   color: var(--light);
   padding: 0rem 0.5rem;
