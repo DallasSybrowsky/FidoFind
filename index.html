@@ -15,44 +15,41 @@
     <title>FidoFind</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">FidoFind.com</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link" href="#">Features</a>
-            <a class="nav-link" href="#">Pricing</a>
-          </div>
-        </div>
+    <nav class="navbar navbar-expand-lg">
+      <div class="navbar-brand container-fluid">
+        <p class="navbar-brand">FidoFind</p>
       </div>
     </nav>
-
-    <label for="exampleDataList" class="form-label">Find your next pet!</label>
-    <input
-      class="form-control"
-      list="datalistOptions"
-      id="exampleDataList"
-      placeholder="Type to search..."
-    />
-    <datalist id="datalistOptions">
-      <option value="San Francisco"></option>
-      <option value="New York"></option>
-      <option value="Seattle"></option>
-      <option value="Los Angeles"></option>
-      <option value="Chicago"></option>
-    </datalist>
-    <button class="btn">Click me!</button>
+    <figure class="hero-img"></figure>
+    <search class="searchBar">
+      <label for="petSearch" class="form-label">Find your next pet!</label>
+      <input
+        class="form-control"
+        id="exampleDataList"
+        placeholder="Start your search here..."
+      />
+      <label for="petSearch" class="form-label">Zipcode</label>
+      <input
+        class="form-control"
+        id="exampleDataList"
+        placeholder="ex: 92037"
+      />
+      <div class="btn-group">
+        <button type="button" class="radius btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Search Radius
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <button class="dropdown-item" type="button">10 mi</button>
+          <button class="dropdown-item" type="button">25 mi</button>
+          <button class="dropdown-item" type="button">50 mi</button>
+          <button class="dropdown-item" type="button">100 mi</button>
+          <button class="dropdown-item" type="button">250 mi</button>
+        </div>
+      </div>
+    </search>
+    <article>
+      <h3>About FidoFind</h3>
+      <p>FidoFind's mission is to help people more easily connect with adoptable pets. We've found that to find a pet, people must either visit multiple shelters, or view available pets on multiple websites, making the process tedious and time consuming. Our aim is to aggregate data from multiple sources to make it easier for people to find an adoptable pet and help alleviate overcrowding in shelters.</p>
+    </article>
   </body>
 </html>
