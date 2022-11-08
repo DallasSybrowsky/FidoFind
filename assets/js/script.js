@@ -1,3 +1,4 @@
+var breedSearch = document.querySelector("#breed-list");
 
 // Extract Bearer Token
 fetch('https://api.petfinder.com/v2/oauth2/token', {
@@ -39,6 +40,20 @@ function fetchData(bearerToken) {
       console.log(result.animals[0].contact.address);
       console.log(result.animals[0].description);
       console.log(result.animals[0].organization_id);
+    })
+    .catch(error => console.log('error', error));
+
+
+  fetch("https://api.petfinder.com/v2/types/dog/breeds", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      console.log(result);
+      for (let i = 0; i < result.breeds.length; i++) {
+        const element = result.breeds[i];
+        breedSearch
+          .appendChild(document.createElement("option"))
+          .value = element.name;
+      }
     })
     .catch(error => console.log('error', error));
 
