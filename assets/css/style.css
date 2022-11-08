@@ -34,7 +34,7 @@ nav {
   height: 400px;
   max-width: 100%;
   margin: 0px;
-  background-image: url("../images/Dog.jpg");
+  background-image: url("/assets/images/Dog.jpg");
   object-fit: fill;
   background-position: center;
   background-size: cover;

@@ -22,12 +22,15 @@
     </nav>
     <figure class="hero-img"src></figure>
     <search class="searchBar">
-      <label for="petSearch" class="form-label">Find your next pet!</label>
+      <label for="petSearch" class="form-label">Find your next pet! Enter your preferred breed here!</label>
       <input
         class="form-control"
         id="exampleDataList"
+        list="breed-list"
         placeholder=" Start your search here..."
       />
+      <datalist id="breed-list">
+      </datalist>
       <label for="petSearch" class="form-label">Zipcode:</label>
       <input
         class="form-control"
