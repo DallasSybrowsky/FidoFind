@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,500&family=Pacifico&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,500&family=Pacifico&display=swap");
 
 :root {
   --yellow: #fddd13;
@@ -12,11 +12,11 @@
 
 body {
   background-color: var(--light);
-} 
+}
 
 .navbar-brand,
 nav {
-  font-family: 'Pacifico', cursive;;
+  font-family: "Pacifico", cursive;
   font-size: 2rem;
   font-weight: 400;
   background-color: var(--dark-blue);
@@ -29,33 +29,40 @@ nav {
   color: var(--light);
 }
 
-.search-params, .search-items {
-    background-color: var(--dark-blue);
-    color: var(--light);
-    padding: 0rem 0rem 0rem .75rem;
-    
-  }
-
-.btn-secondary, .btn-secondary:hover, .btn-secondary:active {
+.search-params,
+.search-items {
   background-color: var(--dark-blue);
-  border: .25rem solid var(--grey);
+  color: var(--light);
+  padding: 0rem 0rem 0rem 0.75rem;
+}
+
+.form-control {
+  display: flex;
+  margin: 0.25rem 0.5rem 0rem 0.5rem;
+}
+
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:active {
+  background-color: var(--dark-blue);
+  border: 0.25rem solid var(--grey);
 }
 
 .btn-secondary {
-    background-color: var(--dark-blue);
-    border: .25rem solid var(--grey);
-    border-radius: .25rem ;
-    color: var(--light);
-    margin: .25rem 0rem;
+  background-color: var(--dark-blue);
+  border: 0.25rem solid var(--grey);
+  border-radius: 0.25rem;
+  color: var(--light);
+  margin: 0.25rem 0rem;
 }
 
 .refine-search {
-    background-color: var(--dark-blue);
-    border: .25rem solid var(--grey);
-    border-radius: .25rem ;
-    color: var(--light);
-    margin: .25rem 0rem;
-    padding: 6px;
+  background-color: var(--dark-blue);
+  border: 0.25rem solid var(--grey);
+  border-radius: 0.25rem;
+  color: var(--light);
+  margin: 0.25rem 0rem;
+  padding: 6px;
 }
 
 .dropdown-menu {
@@ -68,13 +75,13 @@ nav {
 }
 
 .search-results {
-  padding: .5rem .75rem .5rem .5rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.5rem;
 }
 .result-template {
-  border: .2rem solid var(--dark-blue);
-  border-radius: .25rem;
-  padding: .5rem;
-  margin: .5rem .5rem .25rem 0rem;
+  border: 0.2rem solid var(--dark-blue);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  margin: 0.5rem 0.5rem 0.25rem 0rem;
 }
 
 .pet-name {
@@ -83,19 +90,24 @@ nav {
 
 .pet-img {
   height: 250px;
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 1rem;
+}
+
+.org-address-1,
+.org-address-2 {
+  margin-left: 1rem;
 }
 
 .org-img {
   height: 200px;
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 1rem;
 }
 
 .pet-info-contact {
-  padding: 0rem
+  padding: 0rem;
 }
 .organization-phone {
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
