@@ -3,6 +3,10 @@ var breedInput = document.querySelector("#breed-search");
 var zipcodeInput = document.querySelector("#zip-code-search");
 var dropDownItem = document.querySelector(".dropdown-menu");
 
+function getCurrentURL() {
+   return window.location.href;
+}
+
 // Extract Bearer Token
 fetch('https://api.petfinder.com/v2/oauth2/token', {
   method: 'POST',
@@ -73,6 +77,12 @@ var formInput = function (event) {
 }
 
 dropDownItem.addEventListener("click", formInput);
+
+// Scripts for search_results.html page.
+var test = document.querySelector(".test");
+if (getCurrentURL().includes("index.html")) {
+  console.log("Yes this is the HTML page.");
+}
 
 // Name
 // Age
