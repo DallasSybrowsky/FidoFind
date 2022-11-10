@@ -1,4 +1,7 @@
 var breedSearch = document.querySelector("#breed-list");
+var breedInput = document.querySelector("#breed-search");
+var zipcodeInput = document.querySelector("#zip-code-search");
+var dropDownItem = document.querySelector(".dropdown-menu");
 
 // Extract Bearer Token
 fetch('https://api.petfinder.com/v2/oauth2/token', {
@@ -58,6 +61,18 @@ function fetchData(bearerToken) {
     .catch(error => console.log('error', error));
 
 }
+
+var formInput = function (event) {  
+  event.preventDefault();
+  var radiusSearch = event.target.textContent.split(" ");
+  var radius = radiusSearch[0];
+  var zipCode = zipcodeInput.value;
+  var breed = breedInput.value;
+  var parameters = `animals?type=dog&breed=${breed}&page=1&location=${zipCode}&distance=${radius}`;
+  window.location.href = `https://dallassybrowsky.github.io/FidoFind/search_results.html?${parameters}`;
+}
+
+dropDownItem.addEventListener("click", formInput);
 
 // Name
 // Age
