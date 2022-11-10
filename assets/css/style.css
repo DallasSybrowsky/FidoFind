@@ -31,8 +31,8 @@ nav {
 }
 
 .hero-img {
-  height: 400px;
-  max-width: 100%;
+  height: 375px;
+  width: 100%;
   margin: 0px;
   background-image: url("../images/Dog.jpg");
   object-fit: fill;

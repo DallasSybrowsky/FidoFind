@@ -23,30 +23,47 @@
     <div class="search-container row">
       <div class="search-params col-3">
         <h3 class="search-refine-title">Refine your search:</h3>
-        <div class="input-group mb-3">
-          <input class="form-control"
-          id="exampleDataList"
-          list="breed-list"
-          placeholder=" Enter your preferred breed here...">
+        <div class="input-group mb-2">
+          <input
+            class="form-control"
+            id="exampleDataList"
+            list="breed-list"
+            placeholder=" Enter your preferred breed here..."
+          />
         </div>
-        <div class="input-group mb-3">
-          <input class="form-control"
-          id="exampleDataList"
-          list="breed-list"
-          placeholder=" Enter a new Zip Code here...">
+        <div class="input-group mb-2">
+          <input
+            class="form-control"
+            id="exampleDataList"
+            list="age-list"
+            placeholder=" Enter the age here..."
+          />
+        </div>
+        <div class="input-group mb-2">
+          <input
+            class="form-control"
+            id="exampleDataList"
+            list="breed-list"
+            placeholder=" Enter a new Zip Code here..."
+          />
         </div>
         <div class="radius-btn dropdown d-flex justify-content-center">
-            <button class="radius btn btn-secondary dropdown-toggle col-10" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Search Radius
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item">10 miles</a></li>
-              <li><a class="dropdown-item">25 miles</a></li>
-              <li><a class="dropdown-item">50 miles</a></li>
-              <li><a class="dropdown-item">100 miles</a></li>
-              <li><a class="dropdown-item">200 miles</a></li>
-            </ul>
-          </div>
+          <button
+            class="radius btn btn-secondary dropdown-toggle col-10"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Search Radius
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item">10 miles</a></li>
+            <li><a class="dropdown-item">25 miles</a></li>
+            <li><a class="dropdown-item">50 miles</a></li>
+            <li><a class="dropdown-item">100 miles</a></li>
+            <li><a class="dropdown-item">200 miles</a></li>
+          </ul>
+        </div>
         <div class="search-btn d-flex justify-content-center">
           <button class="refine-search col-10 d-flex justify-content-center">
             Search
@@ -55,31 +72,56 @@
       </div>
       <div class="search-results col-9">
         <h3>Search Results:</h3>
-       
+
         <!-- Beginning of template -->
         <div class="result-template">
           <div class="pet-info-basics row">
             <div class="col-3">
               <h4 class="row pet-name d-flex justify-content-center">Fido</h4>
-              <img class="pet-img justify-content-center" src="./assets/images/dog-template.jpg">
+              <img
+                class="pet-img justify-content-center"
+                src="./assets/images/dog-template.jpg"
+              />
             </div>
             <div class="col-6 container">
               <div class="pet-info-details">
                 <h4>Description:</h4>
-                  <h6 class="pet-description">Fido is a friendly black lab puppy. He's 3 months old and loves to lick faces and nibble on hands. He is up to date on his vaccinations and looking for his forever home. Come pick him up today!</h6>
-                <h5 class="col-12">Location: <span class="col-9 pet-location-name">Furry Friends Animal Rescue</span><span class="organization-phone justify-content-around">(800) 555-1234</span></h5>
+                <h6 class="pet-description">
+                  Fido is a friendly black lab puppy. He's 3 months old and
+                  loves to lick faces and nibble on hands. He is up to date on
+                  his vaccinations and looking for his forever home. Come pick
+                  him up today!
+                </h6>
+                <h5 class="col-12">
+                  Location:
+                  <span class="col-9 pet-location-name"
+                    >Furry Friends Animal Rescue</span
+                  ><span class="organization-phone justify-content-around"
+                    >(800) 555-1234</span
+                  >
+                </h5>
                 <h5 class="col-9 org-address-1">1234 Main St.</h5>
                 <h5 class="col-9 org-address-2">San Diego, CA 92010</h5>
-                <button class="refine-search col-10 d-flex justify-content-center">
+                <button
+                  class="refine-search col-10 d-flex justify-content-center"
+                >
                   Get Directions to Fido!
                 </button>
-                <h5 class="col-9 distance"><span class="pet-name">Fido</span> is: 26 miles away from your location</h5>
+                <h5 class="col-9 distance">
+                  <span class="pet-name">Fido</span> is: 26 miles away from your
+                  location
+                </h5>
               </div>
             </div>
             <div class="pet-info-contact col-3">
               <h4>Shelter Information:</h4>
-              <img class="org-img justify-content-center" src="./assets/images/logo-template.jpg">
-              <a class="organization-URL justify-content-around">www.animalrescue.com</a>
+              <img
+                class="org-img justify-content-center"
+                src="./assets/images/logo-template.jpg"
+              />
+              <a class="organization-URL justify-content-around"
+                >www.animalrescue.com</a
+              >
             </div>
           </div>
         </div>
