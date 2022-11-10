@@ -67,11 +67,11 @@
               <div class="pet-info-details">
                 <h4>Description:</h4>
                   <h6 class="pet-description">Fido is a friendly black lab puppy. He's 3 months old and loves to lick faces and nibble on hands. He is up to date on his vaccinations and looking for his forever home. Come pick him up today!</h6>
-                <h5 class="col-12">Location: <span class="col-9 pet-location-name">Furry Friends Animal Rescue</span></h5>
+                <h5 class="col-12">Location: <span class="col-9 pet-location-name">Furry Friends Animal Rescue</span><span class="organization-phone justify-content-around">(800) 555-1234</span></h5>
                 <h5 class="col-9 org-address-1">1234 Main St.</h5>
                 <h5 class="col-9 org-address-2">San Diego, CA 92010</h5>
                 <button class="refine-search col-10 d-flex justify-content-center">
-                  Get Directions to Fido!  <!--insert template literal here -->
+                  Get Directions to Fido!
                 </button>
                 <h5 class="col-9 distance"><span class="pet-name">Fido</span> is: 26 miles away from your location</h5>
               </div>
@@ -79,13 +79,17 @@
             <div class="pet-info-contact col-3">
               <h4>Shelter Information:</h4>
               <img class="org-img justify-content-center" src="./assets/images/logo-template.jpg">
-              <h5 class="organization-phone justify-content-around">(800) 555-1234</h5>
+              <a class="organization-URL justify-content-around">www.animalrescue.com</a>
             </div>
           </div>
         </div>
         <!-- End of template -->
       </div>
     </div>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo18PBvxZwpXd1s4Vjl7gX_RC2UZDDANc&callback=initMap"
+    ></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
