@@ -88,7 +88,7 @@ fetch('https://funny-joke-dataset.p.rapidapi.com/users?category=animal ', option
       var random = Math.floor(Math.random() * response.users.length);
       if (response.users[random].category === "Animal") {
         console.log(response.users[random].category);
-        funfactEl.textContent = `Joke of the Day: 
+        funfactEl.textContent = `
         ${response.users[random].body}`;
         return;
       } 
