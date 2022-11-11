@@ -4,6 +4,7 @@ var zipcodeInput = document.querySelector("#zip-code-search");
 var dropDownItem = document.querySelector(".dropdown-menu");
 var resultsEl = document.querySelector(".search-results");
 const recentSearchBtnEl = document.querySelector("#history");
+var funfactEl = document.querySelector(".fun-facts");
 var bearerToken = [];
 
 // Extract Bearer Token
@@ -63,7 +64,7 @@ function fetchData(bearerToken, url) {
     // mode: "no-cors",
   };
 
-  fetch(`https://api.petfinder.com/v2/${parameters}`, requestOptions)
+  fetch(`https://api.petfinder.com/v2/${parameters}&sort=distance`, requestOptions)
     .then((response) => response.json())
     .then((result) => {
       // Start Appending
@@ -191,3 +192,27 @@ function fetchData(bearerToken, url) {
     })
     .catch((error) => console.log("error", error));
 }
+
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'b302a7d270msh7ca022982f8c082p16f50ajsn570b6cc641e0',
+		'X-RapidAPI-Host': 'funny-joke-dataset.p.rapidapi.com'
+	}
+};
+
+fetch('https://funny-joke-dataset.p.rapidapi.com/users?category=animal ', options)
+	.then(response => response.json())
+	.then(response => {
+    console.log(response.users);
+    for (let i = 0; i < response.users.length; i++) {
+      var random = Math.floor(Math.random() * response.users.length);
+      if (response.users[random].category === "Animal") {
+        console.log(response.users[random].category);
+        funfactEl.textContent = `Joke of the Day: 
+        ${response.users[random].body}`;
+        return;
+      } 
+    }
+  })
+	.catch(err => console.error(err));
