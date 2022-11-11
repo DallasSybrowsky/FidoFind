@@ -65,6 +65,25 @@ nav {
   padding: 6px;
 }
 
+.search-btn {
+  border-bottom: 0.25rem solid var(--light);
+  padding-bottom: 0.5rem;
+}
+
+.searchHistory {
+  margin-top: 0.5rem;
+}
+
+.recent-search {
+  background-color: var(--dark-blue);
+  width: 100%;
+  border: 0.25rem solid var(--grey);
+  border-radius: 0.25rem;
+  color: var(--light);
+  margin: 0.25rem 0rem;
+  padding: 6px;
+}
+
 .dropdown-menu {
   background-color: var(--light);
 }
@@ -74,9 +93,14 @@ nav {
   color: white;
 }
 
+.fun-facts {
+  justify-content: center;
+}
+
 .search-results {
   padding: 0.5rem 0.75rem 0.5rem 0.5rem;
 }
+
 .result-template {
   border: 0.2rem solid var(--dark-blue);
   border-radius: 0.25rem;
@@ -105,9 +129,27 @@ nav {
   border-radius: 1rem;
 }
 
+.distance {
+  margin-top: 1rem;
+}
+
 .pet-info-contact {
   padding: 0rem;
 }
+
 .organization-phone {
   margin-left: 0.5rem;
+}
+
+.organization-email {
+  font-size: inherit;
+  margin-left: 0.5rem;
+}
+
+.footer-banner {
+  font-size: 2rem;
+  background-color: var(--dark-blue);
+  color: var(--light);
+  padding: 0.5rem 0.5rem 1rem 0.5rem;
+  justify-content: center;
 }

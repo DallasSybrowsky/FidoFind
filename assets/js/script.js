@@ -27,8 +27,8 @@ function getBearerToken() {
     })
     .catch((error) => console.log("error", error));
 }
-  
-  // Breed list API
+
+// Breed list API
 getBearerToken();
 function breedList() {
   var myHeaders = new Headers();
@@ -42,12 +42,11 @@ function breedList() {
   fetch("https://api.petfinder.com/v2/types/dog/breeds", requestOptions)
     .then((response) => response.json())
     .then((result) => {
-        for (let i = 0; i < result.breeds.length; i++) {
-          const element = result.breeds[i];
-          breedSearch.appendChild(document.createElement("option")).value =
-            element.name;
-        }
-      
+      for (let i = 0; i < result.breeds.length; i++) {
+        const element = result.breeds[i];
+        breedSearch.appendChild(document.createElement("option")).value =
+          element.name;
+      }
     })
     .catch((error) => console.log("error", error));
 }
