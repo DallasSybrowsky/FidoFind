@@ -10,21 +10,22 @@ function getCurrentURL() {
 
 // Extract Bearer Token
 function getBearerToken(url) {
-  fetch('https://api.petfinder.com/v2/oauth2/token', {
-    method: 'POST',
+  fetch("https://api.petfinder.com/v2/oauth2/token", {
+    method: "POST",
     body: new URLSearchParams({
-      'grant_type': 'client_credentials',
-      'client_id': 'hYLLBlFvMKtqc5fCv228G4ipLa01BiIm7j4HZwjpoccdp2Qb6d',
-      'client_secret': 'AHsC8QDmODplLu6YSziXLQMobIg5N3022Jo24b8m'
-    })
-  }).then(response => response.json())
-    .then(result => {
+      grant_type: "client_credentials",
+      client_id: "hYLLBlFvMKtqc5fCv228G4ipLa01BiIm7j4HZwjpoccdp2Qb6d",
+      client_secret: "AHsC8QDmODplLu6YSziXLQMobIg5N3022Jo24b8m",
+    }),
+  })
+    .then((response) => response.json())
+    .then((result) => {
       var bearerToken = result.access_token;
       var expiration = result.expires_in;
       fetchData(bearerToken, url);
       console.log(bearerToken);
     })
-    .catch(error => console.log('error', error));
+    .catch((error) => console.log("error", error));
 }
 
 // Get Dog Data
@@ -35,26 +36,31 @@ function fetchData(bearerToken, url) {
   var parameters = url.substring(1);
 
   var requestOptions = {
-    method: 'GET',
+    method: "GET",
     headers: myHeaders,
-    redirect: 'follow'
+    redirect: "follow",
   };
 
   fetch(`https://api.petfinder.com/v2/${parameters}`, requestOptions)
-    .then(response => response.json())
-    .then(result => {
+    .then((response) => response.json())
+    .then((result) => {
       // Start Appending
       console.log(result);
-      var name = result.animals[0].name;
-      var age = result.animals[0].age;
-      var photo = result.animals[0].primary_photo_cropped.full;
-      var email = result.animals[0].contact.email;
-      var phone = result.animals[0].contact.phone;
-      var address = result.animals[0].contact.address;
-      var description = result.animals[0].description;
-      var orgId = result.animals[0].organization_id
-      resultsEl.appendChild(document.createElement("div")).className = "result-template";
-      resultsEl.lastChild.innerHTML = `<div class="pet-info-basics row">
+      for (i = 0; i < 20; i++) {
+        var name = result.animals[i].name;
+        var age = result.animals[i].age;
+        var photo = result.animals[i].primary_photo_cropped.full;
+        var email = result.animals[i].contact.email;
+        var phone = result.animals[i].contact.phone;
+        var address = result.animals[i].contact.address.address1;
+        var city = result.animals[i].contact.address.city;
+        var state = result.animals[i].contact.address.state;
+        var zipcode = result.animals[i].contact.address.postcode;
+        var description = result.animals[i].description;
+        var orgId = result.animals[i].organization_id;
+        resultsEl.appendChild(document.createElement("div")).className =
+          "result-template";
+        resultsEl.lastChild.innerHTML = `<div class="pet-info-basics row">
       <div class="col-3">
         <h4 class="row pet-name d-flex justify-content-center">${name}</h4>
         <img
@@ -76,16 +82,15 @@ function fetchData(bearerToken, url) {
               >${phone}</span
             >
           </h5>
-          <h5 class="col-9 org-address-1">1234 Main St.</h5>
-          <h5 class="col-9 org-address-2">San Diego, CA 92010</h5>
+          <h5 class="col-9 org-address-1">${address}</h5>
+          <h5 class="col-9 org-address-2">${city}, ${state} ${zipcode}</h5>
           <button
             class="refine-search col-10 d-flex justify-content-center"
           >
-            Get Directions to Fido!
+            Get Directions to ${name}!
           </button>
           <h5 class="col-9 distance">
-            <span class="pet-name">Fido</span> is: 26 miles away from your
-            location
+            <span class="pet-name">${name}</span> is: 26 miles away from you
           </h5>
         </div>
       </div>
@@ -96,30 +101,28 @@ function fetchData(bearerToken, url) {
           src="./assets/images/logo-template.jpg"
         />
         <a class="organization-URL justify-content-around"
-          >www.animalrescue.com</a
+          >${email}</a
         >
       </div>
     </div>`;
+      }
       // Stop Appending
     })
-    .catch(error => console.log('error', error));
-
+    .catch((error) => console.log("error", error));
 
   fetch("https://api.petfinder.com/v2/types/dog/breeds", requestOptions)
-    .then(response => response.json())
-    .then(result => {
+    .then((response) => response.json())
+    .then((result) => {
       if (getCurrentURL().includes("index.html")) {
         console.log("Yes this is the HTML page.");
         for (let i = 0; i < result.breeds.length; i++) {
           const element = result.breeds[i];
-          breedSearch
-            .appendChild(document.createElement("option"))
-            .value = element.name;
+          breedSearch.appendChild(document.createElement("option")).value =
+            element.name;
         }
       }
     })
-    .catch(error => console.log('error', error));
-
+    .catch((error) => console.log("error", error));
 }
 
 var formInput = function (event) {
@@ -134,10 +137,12 @@ var formInput = function (event) {
   }
   if (breedInput.value != "") {
     var breed = `&breed=${breedInput.value}`;
-  } else { var breed = "" }
+  } else {
+    var breed = "";
+  }
   var parameters = `animals?type=dog${breed}&page=1${zipCode}${radius}`;
   window.location.href = `./search_results.html?${parameters}`;
-}
+};
 
 dropDownItem.addEventListener("click", formInput);
 

@@ -89,7 +89,7 @@ nav {
 }
 
 .pet-img {
-  height: 250px;
+  width: 250px;
   padding: 0.5rem;
   border-radius: 1rem;
 }
