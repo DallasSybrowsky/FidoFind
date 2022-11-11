@@ -5,6 +5,7 @@ var dropDownItem = document.querySelector(".dropdown-menu");
 var resultsEl = document.querySelector(".search-results");
 var funfactEl = document.querySelector(".fun-facts");
 var bearerToken = [];
+var savedSearches = [localStorage.getItem("searchInput")] || [];
 
 // Extract Bearer Token
 function getBearerToken() {
@@ -68,30 +69,32 @@ var formInput = function (event) {
   }
   var parameters = `animals?type=dog${breed}&page=1${zipCode}${radius}`;
   window.location.href = `./search_results.html?${parameters}`;
+  savedSearches.push(parameters);
+  localStorage.setItem("searchInput", savedSearches);
 };
 
 dropDownItem.addEventListener("click", formInput);
 
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'b302a7d270msh7ca022982f8c082p16f50ajsn570b6cc641e0',
-		'X-RapidAPI-Host': 'funny-joke-dataset.p.rapidapi.com'
-	}
-};
+// const options = {
+// 	method: 'GET',
+// 	headers: {
+// 		'X-RapidAPI-Key': 'b302a7d270msh7ca022982f8c082p16f50ajsn570b6cc641e0',
+// 		'X-RapidAPI-Host': 'funny-joke-dataset.p.rapidapi.com'
+// 	}
+// };
 
-fetch('https://funny-joke-dataset.p.rapidapi.com/users?category=animal ', options)
-	.then(response => response.json())
-	.then(response => {
-    console.log(response.users);
-    for (let i = 0; i < response.users.length; i++) {
-      var random = Math.floor(Math.random() * response.users.length);
-      if (response.users[random].category === "Animal") {
-        console.log(response.users[random].category);
-        funfactEl.textContent = `Joke of the Day: 
-        ${response.users[random].body}`;
-        return;
-      } 
-    }
-  })
-	.catch(err => console.error(err));
+// fetch('https://funny-joke-dataset.p.rapidapi.com/users?category=animal ', options)
+// 	.then(response => response.json())
+// 	.then(response => {
+//     console.log(response.users);
+//     for (let i = 0; i < response.users.length; i++) {
+//       var random = Math.floor(Math.random() * response.users.length);
+//       if (response.users[random].category === "Animal") {
+//         console.log(response.users[random].category);
+//         funfactEl.textContent = `Joke of the Day: 
+//         ${response.users[random].body}`;
+//         return;
+//       } 
+//     }
+//   })
+// 	.catch(err => console.error(err));
