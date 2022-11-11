@@ -5,6 +5,7 @@ var dropDownItem = document.querySelector(".dropdown-menu");
 var resultsEl = document.querySelector(".search-results");
 var funfactEl = document.querySelector(".fun-facts");
 var bearerToken = [];
+var savedSearches = [localStorage.getItem("searchInput")] || [];
 
 // Extract Bearer Token
 function getBearerToken() {
@@ -68,6 +69,8 @@ var formInput = function (event) {
   }
   var parameters = `animals?type=dog${breed}&page=1${zipCode}${radius}`;
   window.location.href = `./search_results.html?${parameters}`;
+  savedSearches.push(parameters);
+  localStorage.setItem("searchInput", savedSearches);
 };
 
 dropDownItem.addEventListener("click", formInput);

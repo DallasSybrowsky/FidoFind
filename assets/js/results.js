@@ -32,22 +32,41 @@ function getBearerToken() {
 
 // Recent searches
 var createRecentButtons = function () {
-  var data = localStorage.getItem("searchInput") || []; //We need to parse the search data and input into the quotes to store in
-  var parsedOldSearches = data.length === 0 ? [] : JSON.parse(data);
   var template = "";
-  if (parsedOldSearches.length > 0) {
-    parsedOldSearches.forEach(function (searchInput) {
-      template += `<button class="recent-search">Breed: ${searchInput}, Radius: ${searchInput}</button>`;
-    });
+  var data = localStorage.getItem("searchInput") || []; //We need to parse the search data and input into the quotes to store in
+  var parsedOldSearches = data.split(",");
+  console.log(parsedOldSearches);
+  for (let i = 0; i < parsedOldSearches.length; i++) {
+    if (parsedOldSearches[i] ===  "") {
+      continue;
+    }
+    const element = parsedOldSearches[i].replace("animals?", "");
+    var searchParameters = parsedOldSearches[i];
+    var splitUrl = element.split("&");
+    for (let x = 0; x < splitUrl.length; x++) {
+      const splitElement = splitUrl[x];
+      var splitParameter = splitElement.split("=");
+      if (splitParameter[0] === "location") {
+        var zipCode = `Zip Code: ${splitParameter[1]}, `;
+      }
+      if (splitParameter[0] === "breed") {
+        var breed = `Breed: ${splitParameter[1]}, `;
+      }
+      if (splitParameter[0] === "distance") {
+        var distance = `Radius: ${splitParameter[1]}`;
+      }
+    }
+    var breed = breed ?? "";
+    console.log(breed);
+    template += `<button value="${searchParameters}" class="recent-search">${breed}${zipCode}${distance}</button>`;
+    
   }
   document.querySelector("#history").innerHTML = template;
 };
 
 createRecentButtons();
 document.querySelector("#history").addEventListener("click", function (event) {
-  console.log(event.target);
-  var recentSearch = event.target.textContent;
-  getForecast(recentSearch);
+  window.location.href= `./search_results.html?${event.target.value}`;
 });
 
 // Get Dog Data
