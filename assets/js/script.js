@@ -3,6 +3,7 @@ var breedInput = document.querySelector("#breed-search");
 var zipcodeInput = document.querySelector("#zip-code-search");
 var dropDownItem = document.querySelector(".dropdown-menu");
 var resultsEl = document.querySelector(".search-results");
+var funfactEl = document.querySelector(".fun-facts");
 var bearerToken = [];
 
 // Extract Bearer Token
@@ -22,12 +23,13 @@ function getBearerToken() {
       console.log(bearerTokenValue);
       bearerToken.push(bearerTokenValue);
       console.log(bearerToken);
+      breedList();
     })
     .catch((error) => console.log("error", error));
 }
   
   // Breed list API
-  breedList();
+getBearerToken();
 function breedList() {
   var myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${bearerToken}`);
@@ -44,7 +46,6 @@ function breedList() {
           const element = result.breeds[i];
           breedSearch.appendChild(document.createElement("option")).value =
             element.name;
-            console.log(element.name);
         }
       
     })
