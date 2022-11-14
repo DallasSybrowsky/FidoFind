@@ -185,7 +185,7 @@ function fetchData(bearerToken, url) {
           <h5 class="col-12 distance text-center">
           <span class="pet-name">${name}</span> is ${distance}
           </h5>
-          <h5 class="col-12">Location:</h5>
+          <h5 class="col-12 text-left">Location:</h5>
           <h5 class="col-9 org-address-1">${address}</h5>
           <h5 class="col-9 org-address-2">${city}, ${state} ${zipcode}</h5>
           </div>
@@ -196,6 +196,7 @@ function fetchData(bearerToken, url) {
           >${email}</a>
           <h5 class="organization-phone justify-content-around">${phone}</h5>
           <h5>More about ${name}:</h5>
+          <div class="animal-details">
           <h6 class="gender">Gender: ${gender}<h6>
           <h6 class="age">Age: ${age}<h6>
           <h6 class="spay-neuter">${sterilizedGen} ${sterilized}</h6>
@@ -204,6 +205,7 @@ function fetchData(bearerToken, url) {
           <h6 class="kids-ok">Good with kids: ${kidsOk}</h6>
           <h6 class="dogs-ok">Good with dogs: ${dogsOk}</h6>
           <h6 class="cats-ok">Good with cats: ${catsOk}</h6>
+          </div>
       </div>
     </div>`;
       }

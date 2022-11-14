@@ -107,6 +107,14 @@ nav {
   padding: 0.5rem;
   margin: 0.5rem 0.5rem 0.25rem 0rem;
 }
+.pet-info-details {
+text-align: start;
+}
+
+.animal-details {
+  text-align: start;
+  padding-left: 4rem;
+}
 
 .pet-name {
   margin: 0rem;
