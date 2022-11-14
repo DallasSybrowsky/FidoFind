@@ -74,9 +74,9 @@ var formInput = function (event) {
   console.log(test);
   // if ([localStorage.getItem("searchInput")].includes(parameters)) {
   // }
-    savedSearches.push(parameters);
-    localStorage.setItem("searchInput", savedSearches);
-    window.location.href = `./search_results.html?${parameters}`;
+  savedSearches.push(parameters);
+  localStorage.setItem("searchInput", savedSearches);
+  window.location.href = `./search_results.html?${parameters}`;
 };
 
 function isUSAZipCode(zipCode) {
@@ -86,16 +86,19 @@ function isUSAZipCode(zipCode) {
 dropDownItem.addEventListener("click", formInput);
 
 const options = {
-  method: 'GET',
+  method: "GET",
   headers: {
-    'X-RapidAPI-Key': 'b302a7d270msh7ca022982f8c082p16f50ajsn570b6cc641e0',
-    'X-RapidAPI-Host': 'funny-joke-dataset.p.rapidapi.com'
-  }
+    "X-RapidAPI-Key": "b302a7d270msh7ca022982f8c082p16f50ajsn570b6cc641e0",
+    "X-RapidAPI-Host": "funny-joke-dataset.p.rapidapi.com",
+  },
 };
 
-fetch('https://funny-joke-dataset.p.rapidapi.com/users?category=animal ', options)
-  .then(response => response.json())
-  .then(response => {
+fetch(
+  "https://funny-joke-dataset.p.rapidapi.com/users?category=animal ",
+  options
+)
+  .then((response) => response.json())
+  .then((response) => {
     console.log(response.users);
     for (let i = 0; i < response.users.length; i++) {
       var random = Math.floor(Math.random() * response.users.length);
@@ -107,4 +110,4 @@ fetch('https://funny-joke-dataset.p.rapidapi.com/users?category=animal ', option
       }
     }
   })
-  .catch(err => console.error(err));
+  .catch((err) => console.error(err));
